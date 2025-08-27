@@ -444,81 +444,308 @@ const SimpleEmailEditor = () => {
           content: '<mj-raw><!-- Custom HTML here --></mj-raw>',
         });
 
-        // ItsBot Subscription Expiry Reminder Template
+        // Professional Welcome Email Template - Updated with better design
         ed.setComponents(`
           <mjml>
             <mj-head>
               <mj-attributes>
-                <mj-all font-family="Inter, Arial, sans-serif" />
-                <mj-text color="#374151" font-size="16px" line-height="1.6" />
+                <mj-all font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" />
+                <mj-text color="#2d3748" font-size="16px" line-height="1.6" />
                 <mj-section padding="0" />
               </mj-attributes>
               <mj-style>
-                .main-content { background-color: #f3f4f6; }
-                .footer-dark { background-color: #374151; }
+                .header-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+                .main-content { background-color: #ffffff; }
+                .footer-section { background-color: #f7fafc; }
+                .cta-button { 
+                  background: linear-gradient(45deg, #4f46e5, #7c3aed) !important;
+                  border-radius: 8px !important;
+                }
+                .company-logo { 
+                  background: #ffffff;
+                  border-radius: 50px;
+                  padding: 8px;
+                }
+                .social-icons a { color: #718096 !important; }
+                .divider-line { border-color: #e2e8f0 !important; }
               </mj-style>
             </mj-head>
-            <mj-body background-color="#ffffff">
-              <!-- Header with Dynamic Company Logo -->
-              <mj-section padding="40px 20px 20px 20px">
+            <mj-body background-color="#f7fafc">
+              <!-- Header Section with Gradient Background -->
+              <mj-section css-class="header-section" background-color="#667eea" padding="40px 20px 30px 20px">
                 <mj-column>
-                  <mj-image align="center" width="120px" src="{{company_logo_url}}" alt="{{company_name}}" />
+                  <mj-image 
+                    css-class="company-logo" 
+                    align="center" 
+                    width="80px" 
+                    height="80px"
+                    border-radius="40px"
+                    src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=160&h=160&fit=crop&crop=center" 
+                    alt="Company Logo" 
+                    padding="0 0 20px 0"
+                  />
+                  <mj-text 
+                    align="center" 
+                    color="#ffffff" 
+                    font-size="28px" 
+                    font-weight="700" 
+                    padding="0 0 10px 0"
+                  >
+                    Welcome to Our Platform!
+                  </mj-text>
+                  <mj-text 
+                    align="center" 
+                    color="#e2e8f0" 
+                    font-size="18px" 
+                    padding="0"
+                  >
+                    We're excited to have you on board
+                  </mj-text>
                 </mj-column>
               </mj-section>
 
-              <!-- Main Content Area with Light Gray Background -->
-              <mj-section css-class="main-content" background-color="#f3f4f6" padding="40px 20px">
+              <!-- Main Content Section -->
+              <mj-section css-class="main-content" background-color="#ffffff" padding="50px 30px">
                 <mj-column>
-                  <!-- Main Heading -->
-                  <mj-text align="center" font-size="28px" font-weight="700" color="#1f2937" padding="0 0 32px 0">
-                    {{email_subject}}
-                  </mj-text>
-                  
-                  <!-- Greeting -->
-                  <mj-text align="center" color="#374151" font-size="16px" padding="0 0 24px 0">
-                    Hi {{user_name}},
+                  <!-- Personal Greeting -->
+                  <mj-text 
+                    align="center" 
+                    color="#2d3748" 
+                    font-size="20px" 
+                    font-weight="600"
+                    padding="0 0 30px 0"
+                  >
+                    Hi John Doe,
                   </mj-text>
                   
                   <!-- Main Message -->
-                  <mj-text align="center" color="#374151" font-size="16px" line-height="1.6" padding="0 20px 16px 20px">
-                    We wanted to give you a heads-up that your subscription <strong>({{subscription_plan}})</strong> is <strong>due to expire in {{days_remaining}} days</strong>. To ensure a seamless experience and continued access to our platform, we kindly remind you to renew your subscription at your earliest convenience.
+                  <mj-text 
+                    align="center" 
+                    color="#4a5568" 
+                    font-size="16px" 
+                    line-height="1.8" 
+                    padding="0 20px 20px 20px"
+                  >
+                    Thank you for joining our community! We're thrilled to have you as part of our growing family. Your journey with us starts now, and we're here to support you every step of the way.
                   </mj-text>
                   
-                  <!-- Thank you message -->
-                  <mj-text align="center" color="#374151" font-size="16px" line-height="1.6" padding="0 20px 32px 20px">
-                    Thank you for your continued support. We value your association with us and look forward to serving you further.
+                  <!-- Feature Highlights -->
+                  <mj-text 
+                    align="center" 
+                    color="#4a5568" 
+                    font-size="16px" 
+                    line-height="1.8" 
+                    padding="0 20px 35px 20px"
+                  >
+                    Get ready to explore amazing features, connect with like-minded individuals, and unlock your full potential with our comprehensive platform.
                   </mj-text>
                   
-                  <!-- Closing -->
-                  <mj-text align="center" color="#374151" font-size="16px" padding="0 0 8px 0">
-                    {{closing_greeting}},
-                  </mj-text>
-                  <mj-text align="center" color="#374151" font-size="16px" font-weight="600" padding="0 0 0 0">
-                    The {{company_name}} Team
+                  <!-- Call to Action Button -->
+                  <mj-button 
+                    css-class="cta-button"
+                    background-color="#4f46e5" 
+                    color="#ffffff"
+                    font-size="16px"
+                    font-weight="600"
+                    border-radius="8px"
+                    padding="15px 30px"
+                    href="https://yourplatform.com/get-started"
+                    inner-padding="12px 30px"
+                  >
+                    Get Started Now
+                  </mj-button>
+                  
+                  <!-- Secondary Information -->
+                  <mj-text 
+                    align="center" 
+                    color="#718096" 
+                    font-size="14px" 
+                    padding="25px 20px 0 20px"
+                  >
+                    Need help getting started? Visit our 
+                    <a href="https://yourplatform.com/help" style="color:#4f46e5;text-decoration:none;">Help Center</a> 
+                    or reply to this email.
                   </mj-text>
                 </mj-column>
               </mj-section>
 
-              <!-- Footer with Dark Background -->
-              <mj-section css-class="footer-dark" background-color="#374151" padding="32px 20px">
+              <!-- Features Section -->
+              <mj-section background-color="#f7fafc" padding="40px 20px">
+                <mj-column width="33.33%">
+                  <mj-image 
+                    width="60px" 
+                    src="https://cdn-icons-png.flaticon.com/512/3281/3281289.png" 
+                    alt="Feature 1"
+                    padding="0 0 15px 0"
+                  />
+                  <mj-text 
+                    align="center" 
+                    color="#2d3748" 
+                    font-size="16px" 
+                    font-weight="600"
+                    padding="0 0 10px 0"
+                  >
+                    Easy Setup
+                  </mj-text>
+                  <mj-text 
+                    align="center" 
+                    color="#718096" 
+                    font-size="14px"
+                  >
+                    Get up and running in minutes with our intuitive onboarding process.
+                  </mj-text>
+                </mj-column>
+                
+                <mj-column width="33.33%">
+                  <mj-image 
+                    width="60px" 
+                    src="https://cdn-icons-png.flaticon.com/512/2950/2950378.png" 
+                    alt="Feature 2"
+                    padding="0 0 15px 0"
+                  />
+                  <mj-text 
+                    align="center" 
+                    color="#2d3748" 
+                    font-size="16px" 
+                    font-weight="600"
+                    padding="0 0 10px 0"
+                  >
+                    24/7 Support
+                  </mj-text>
+                  <mj-text 
+                    align="center" 
+                    color="#718096" 
+                    font-size="14px"
+                  >
+                    Our dedicated team is always here to help you succeed.
+                  </mj-text>
+                </mj-column>
+                
+                <mj-column width="33.33%">
+                  <mj-image 
+                    width="60px" 
+                    src="https://cdn-icons-png.flaticon.com/512/3281/3281307.png" 
+                    alt="Feature 3"
+                    padding="0 0 15px 0"
+                  />
+                  <mj-text 
+                    align="center" 
+                    color="#2d3748" 
+                    font-size="16px" 
+                    font-weight="600"
+                    padding="0 0 10px 0"
+                  >
+                    Secure & Reliable
+                  </mj-text>
+                  <mj-text 
+                    align="center" 
+                    color="#718096" 
+                    font-size="14px"
+                  >
+                    Your data is protected with enterprise-grade security.
+                  </mj-text>
+                </mj-column>
+              </mj-section>
+
+              <!-- Divider -->
+              <mj-section background-color="#ffffff" padding="20px">
                 <mj-column>
-                  <!-- Dynamic Company Logo in Footer -->
-                  <mj-image align="center" width="100px" src="{{company_logo_url}}" alt="{{company_name}}" padding="0 0 24px 0" />
-                  
-                  <!-- Footer Links with Dynamic URLs -->
-                  <mj-text align="center" color="#9ca3af" font-size="14px" padding="0 0 16px 0">
-                    <a href="{{contact_us_url}}" style="color:#9ca3af;text-decoration:none;margin:0 8px;">Contact Us</a>
-                    <span style="color:#6b7280;">|</span>
-                    <a href="{{privacy_policy_url}}" style="color:#9ca3af;text-decoration:none;margin:0 8px;">Privacy Policy</a>
-                    <span style="color:#6b7280;">|</span>
-                    <a href="{{terms_conditions_url}}" style="color:#9ca3af;text-decoration:none;margin:0 8px;">Terms & Conditions</a>
-                    <span style="color:#6b7280;">|</span>
-                    <a href="{{support_url}}" style="color:#9ca3af;text-decoration:none;margin:0 8px;">Support</a>
+                  <mj-divider css-class="divider-line" border-width="1px" border-color="#e2e8f0" />
+                </mj-column>
+              </mj-section>
+
+              <!-- Social Media Section -->
+              <mj-section background-color="#ffffff" padding="30px 20px">
+                <mj-column>
+                  <mj-text 
+                    align="center" 
+                    color="#4a5568" 
+                    font-size="16px" 
+                    font-weight="600"
+                    padding="0 0 20px 0"
+                  >
+                    Stay Connected
+                  </mj-text>
+                  <mj-social 
+                    css-class="social-icons"
+                    font-size="13px" 
+                    icon-size="30px" 
+                    mode="horizontal"
+                    padding="0"
+                    align="center"
+                  >
+                    <mj-social-element 
+                      name="twitter" 
+                      href="https://twitter.com/yourcompany"
+                      background-color="#1da1f2"
+                    />
+                    <mj-social-element 
+                      name="facebook" 
+                      href="https://facebook.com/yourcompany"
+                      background-color="#1877f2"
+                    />
+                    <mj-social-element 
+                      name="linkedin" 
+                      href="https://linkedin.com/company/yourcompany"
+                      background-color="#0077b5"
+                    />
+                    <mj-social-element 
+                      name="instagram" 
+                      href="https://instagram.com/yourcompany"
+                      background-color="#e4405f"
+                    />
+                  </mj-social>
+                </mj-column>
+              </mj-section>
+
+              <!-- Footer Section -->
+              <mj-section css-class="footer-section" background-color="#f7fafc" padding="40px 20px">
+                <mj-column>
+                  <!-- Company Info -->
+                  <mj-text 
+                    align="center" 
+                    color="#718096" 
+                    font-size="14px" 
+                    padding="0 0 10px 0"
+                  >
+                    <strong>Your Company Name</strong> • Making technology accessible for everyone
                   </mj-text>
                   
-                  <!-- Dynamic Copyright -->
-                  <mj-text align="center" color="#6b7280" font-size="14px">
-                    © {{current_year}} {{company_name}}. All Rights Reserved.
+                  <!-- Address -->
+                  <mj-text 
+                    align="center" 
+                    color="#a0aec0" 
+                    font-size="13px" 
+                    padding="0 0 20px 0"
+                  >
+                    123 Business Street, Suite 100<br/>
+                    City, State 12345, United States
+                  </mj-text>
+                  
+                  <!-- Footer Links -->
+                  <mj-text 
+                    align="center" 
+                    color="#718096" 
+                    font-size="13px" 
+                    padding="0 0 15px 0"
+                  >
+                    <a href="https://yourplatform.com/privacy" style="color:#718096;text-decoration:none;margin:0 8px;">Privacy Policy</a>
+                    <span style="color:#cbd5e0;">•</span>
+                    <a href="https://yourplatform.com/terms" style="color:#718096;text-decoration:none;margin:0 8px;">Terms of Service</a>
+                    <span style="color:#cbd5e0;">•</span>
+                    <a href="https://yourplatform.com/contact" style="color:#718096;text-decoration:none;margin:0 8px;">Contact Us</a>
+                  </mj-text>
+                  
+                  <!-- Unsubscribe -->
+                  <mj-text 
+                    align="center" 
+                    color="#a0aec0" 
+                    font-size="12px"
+                  >
+                    You're receiving this email because you signed up for our platform.<br/>
+                    <a href="https://yourplatform.com/unsubscribe" style="color:#a0aec0;text-decoration:underline;">Unsubscribe</a> 
+                    or 
+                    <a href="https://yourplatform.com/preferences" style="color:#a0aec0;text-decoration:underline;">update preferences</a>
                   </mj-text>
                 </mj-column>
               </mj-section>
@@ -567,6 +794,118 @@ const SimpleEmailEditor = () => {
     }
   };
 
+  const handleGetMJML = () => {
+    if (!editor) return;
+    try {
+      const mjml = editor.getHtml();
+      const blob = new Blob([mjml], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'email-template.mjml';
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      alert('MJML export failed: ' + err);
+    }
+  };
+
+  const handleLoadTemplate = (templateType) => {
+    if (!editor) return;
+    
+    const templates = {
+      welcome: `
+        <mjml>
+          <mj-head>
+            <mj-attributes>
+              <mj-all font-family="'Segoe UI', Arial, sans-serif" />
+              <mj-text color="#333333" font-size="16px" line-height="1.6" />
+            </mj-attributes>
+            <mj-style>
+              .header-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+              .cta-btn { background: linear-gradient(45deg, #4f46e5, #7c3aed) !important; }
+            </mj-style>
+          </mj-head>
+          <mj-body background-color="#f8fafc">
+            <mj-section css-class="header-bg" padding="40px 20px">
+              <mj-column>
+                <mj-image width="80px" src="https://via.placeholder.com/160x160/4f46e5/ffffff?text=LOGO" alt="Logo" />
+                <mj-text align="center" color="#ffffff" font-size="28px" font-weight="700">Welcome to Our Platform!</mj-text>
+              </mj-column>
+            </mj-section>
+            <mj-section background-color="#ffffff" padding="40px 30px">
+              <mj-column>
+                <mj-text align="center" font-size="18px">Hi [Name],</mj-text>
+                <mj-text>Thank you for joining our community! We're excited to have you on board.</mj-text>
+                <mj-button css-class="cta-btn" href="#" background-color="#4f46e5">Get Started</mj-button>
+              </mj-column>
+            </mj-section>
+          </mj-body>
+        </mjml>
+      `,
+      newsletter: `
+        <mjml>
+          <mj-head>
+            <mj-attributes>
+              <mj-all font-family="'Segoe UI', Arial, sans-serif" />
+            </mj-attributes>
+          </mj-head>
+          <mj-body background-color="#f4f4f4">
+            <mj-section background-color="#ffffff" padding="20px">
+              <mj-column>
+                <mj-image width="150px" src="https://via.placeholder.com/300x100/333333/ffffff?text=NEWSLETTER" />
+                <mj-text font-size="24px" font-weight="700">Monthly Newsletter</mj-text>
+                <mj-text>Here's what's new this month...</mj-text>
+              </mj-column>
+            </mj-section>
+            <mj-section background-color="#ffffff">
+              <mj-column width="50%">
+                <mj-image src="https://via.placeholder.com/300x200" />
+                <mj-text font-weight="700">Article Title 1</mj-text>
+                <mj-text font-size="14px">Brief description of the article...</mj-text>
+              </mj-column>
+              <mj-column width="50%">
+                <mj-image src="https://via.placeholder.com/300x200" />
+                <mj-text font-weight="700">Article Title 2</mj-text>
+                <mj-text font-size="14px">Brief description of the article...</mj-text>
+              </mj-column>
+            </mj-section>
+          </mj-body>
+        </mjml>
+      `,
+      promotional: `
+        <mjml>
+          <mj-head>
+            <mj-attributes>
+              <mj-all font-family="'Segoe UI', Arial, sans-serif" />
+            </mj-attributes>
+            <mj-style>
+              .promo-bg { background: linear-gradient(45deg, #ff6b6b, #ffd93d); }
+            </mj-style>
+          </mj-head>
+          <mj-body background-color="#ffffff">
+            <mj-section css-class="promo-bg" padding="50px 20px">
+              <mj-column>
+                <mj-text align="center" color="#ffffff" font-size="32px" font-weight="700">SPECIAL OFFER</mj-text>
+                <mj-text align="center" color="#ffffff" font-size="18px">Save 50% on all products!</mj-text>
+                <mj-button background-color="#ffffff" color="#ff6b6b" font-weight="700">Shop Now</mj-button>
+              </mj-column>
+            </mj-section>
+            <mj-section background-color="#f8f9fa" padding="30px">
+              <mj-column>
+                <mj-text align="center" font-size="16px">Limited time offer - expires soon!</mj-text>
+              </mj-column>
+            </mj-section>
+          </mj-body>
+        </mjml>
+      `
+    };
+
+    if (templates[templateType]) {
+      editor.setComponents(templates[templateType]);
+    }
+  };
+
   if (error) {
     return (
       <div className="min-h-screen bg-red-50 flex items-center justify-center p-4">
@@ -585,10 +924,21 @@ const SimpleEmailEditor = () => {
     <div className="h-screen bg-gray-100 flex flex-col">
       <div className="bg-white shadow-sm border-b p-4">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-800">📧 Email Editor</h1>
-          <div className="flex gap-3">
-            <button onClick={handleExport} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">📤 Export HTML</button>
-            <button onClick={() => (window.location.href = '/')} className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">🏠 Home</button>
+          <h1 className="text-2xl font-bold text-gray-800">📧 Professional Email Editor</h1>
+          <div className="flex gap-2">
+            <div className="dropdown relative">
+              <button className="px-3 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition-colors">
+                📋 Templates
+              </button>
+              <div className="dropdown-content absolute right-0 mt-1 bg-white shadow-lg rounded-lg border z-10 min-w-48 hidden group-hover:block">
+                <button onClick={() => handleLoadTemplate('welcome')} className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100">Welcome Email</button>
+                <button onClick={() => handleLoadTemplate('newsletter')} className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100">Newsletter</button>
+                <button onClick={() => handleLoadTemplate('promotional')} className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100">Promotional</button>
+              </div>
+            </div>
+            <button onClick={handleGetMJML} className="px-4 py-2 bg-orange-600 text-white text-sm rounded-lg hover:bg-orange-700 transition-colors">📄 Get MJML</button>
+            <button onClick={handleExport} className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">📤 Export HTML</button>
+            <button onClick={() => (window.location.href = '/')} className="px-4 py-2 bg-gray-600 text-white text-sm rounded-lg hover:bg-gray-700 transition-colors">🏠 Home</button>
           </div>
         </div>
       </div>
@@ -596,9 +946,10 @@ const SimpleEmailEditor = () => {
         <div className="relative w-full h-full" style={{ minHeight: '640px' }}>
           <div ref={editorRef} className="w-full h-full bg-white rounded-lg shadow-sm border border-gray-200" />
           {isLoading && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/70 rounded-lg border border-gray-200">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 rounded-lg border border-gray-200 backdrop-blur-sm">
               <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mb-4"></div>
-              <p className="text-gray-700">Loading editor...</p>
+              <p className="text-gray-700 font-medium">Loading professional email editor...</p>
+              <p className="text-gray-500 text-sm mt-2">Preparing templates and components</p>
             </div>
           )}
         </div>
@@ -608,5 +959,3 @@ const SimpleEmailEditor = () => {
 };
 
 export default SimpleEmailEditor;
-
-
